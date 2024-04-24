@@ -1,0 +1,291 @@
+<html>
+
+<p>
+Question 1
+Which metric would you consider to evaluate a regression model for predicting bulldozer prices?
+* Recall
+* Accuracy
+O F1 Score
+* Mean Squared Error (MSE)
+
+Answer: Mean square error
+
+What disadvantage might arise from using one-hot encoding with Random Forest when the categorical variable has many unique categories?
+* It can lead to underfitting
+* It increases the model's training time significantly
+* It decreases the number of trees in the forest
+* It simplifies the model too much
+
+Answer: It increases the model's training time significantly
+
+
+3. 
+Which of the following is NOT a typical strategy for imputing missing values in a dataset?
+* Using the mean value of the column
+Using the median value of the column
+Using a random value
+Dropping the column entirely
+
+Answer: Dropping the column entirely
+
+
+4. 
+
+What is the primary challenge when using categorical data in machine learning models?
+* They need to be converted to a numerical format
+* They do not provide meaningful insights
+* They are easy to use in all models
+* They require extensive computational resources
+
+Answer: * They need to be converted to a numerical format
+
+
+5. 
+
+Which technique is used to handle missing values in the dataset?
+* Data imputation
+* Data normalization
+* Feature scaling
+* Encoding categorical variables
+
+Answer: Data imputation
+
+
+For categorical data, what is a common technique for filling in missing values?
+* Using linear interpolation
+* Filling with the mode (most frequent category) of the column
+* Filling with zeros
+* Filling with the mean of the column
+
+Answer: Filling with the mode (most frequent category) of the column
+
+
+
+7. 
+
+When is it most appropriate to use ordinal encoding over one-hot encoding in Random Forest?
+* When the number of categories is extremely large
+* When the categories have no intrinsic order
+* When the categorical variable represents a hierarchical order
+* Always, as it is the best method for Random Forest
+
+Answer:When the categorical variable represents a hierarchical order
+
+8. 
+
+How does label encoding differ from one-hot encoding?
+Label encoding is used only for output variables
+* Label encoding converts variables into binary columns
+There is no difference
+Label encoding assigns a unique number to each category
+
+Answer: Label encoding assigns a unique number to each category
+
+
+9. 
+
+What is the significance of feature importance in a model?
+It identifies which features contribute most to the madels predictions
+It has no real impact on the model
+it determines the number of features to be used in the model
+It modifies the features to better suit the model
+
+Answer:It identifies which features contribute most to the madels predictions
+
+
+10.
+
+What effect does log transformation have on a model's ability to predict new data points?
+* It improves the model's interpretability
+* It improves the model's performance by normalizing distribution
+* It has no effect on the model's performance
+* It decreases the models accuracy
+
+Answer: It improves the model's performance by normalizing distribution
+
+
+After training a regression model on log-transformed prices, how do you interpret the model's output for prediction?
+* The output is directly the predicted price
+* Convert the predicted log price back to the original price scale using exponentiation
+* Add the mean of the log prices to the predicted value
+* Multiply the predicted log price by the standard deviation of the log prices
+
+Answer: Convert the predicted log price back to the original price scale using exponentiation
+
+
+Question 12
+When preparing data for a machine learning model, why might you choose to fill null values with the median of a column instead of the mean?
+* The median is unaffected by extreme values in the column.
+* The median requires less computation.
+* The median is always numerically lower than tihy mean.
+* The median is generally preferred for categorical data.
+
+Answer: The median is unaffected by extreme values in the column.
+
+
+Question 13
+What is a potential drawback of using log(price) as the target in a regression model?
+* It can underestimate large values and overestimate small values
+* It can make the model overly sensitive to small changes in price
+* It can distort the relationships between features and the target
+* It can complicate the model unnecessarily
+
+Answer: * It can distort the relationships between features and the target
+
+
+Which method is typically used to handle categories with very few observations?
+* Label encoding
+* Grouping into a 'Other category
+* Removal of the variable
+* One-hot encoding
+
+Answer: Grouping into a 'Other category
+
+
+Question 15
+Why might you use the logarithm of the price instead of the actual price as the target variable in a regression model?
+* To increase the range of the target variable
+* To handle right-skewed data and reduce the impact of outliers
+* To simplify the calculation of the model's coefficients
+* To convert the regression problem into a classification problem
+Answer: * To handle right-skewed data and reduce the impact of outliers
+
+
+16.
+
+Why is encoding categorical variables important before using them in a Random Forest model?
+* Random Forest models can only handle binary data
+* Random Forest cannot handle numerical data
+* Encoding is not necessary for Random Forest models
+* Random Forest models in libraries like scikit-learn require all input data to be numeric
+
+Answer: * Random Forest models in libraries like scikit-learn require all input data to be numeric
+
+
+What is feature engineering in the context of machine learning?
+* The technique of encoding labels
+* The method of calculating feature importance
+* The process of selecting the best machine learning model
+The process of creating new features based on existing data
+
+Answer: The process of creating new features based on existing data
+
+
+18.
+
+Which metric would be appropriate to evaluate a model trained on log(price)?
+* Root Mean Square Error on the original price scale
+* Mean Absolute Error on the log scale
+* Accuracy
+Both A and B are correct
+
+Question 19
+Why is feature engineering important when dealing with categorical variables?
+* It is not necessary as modern algorithms adjust automatically
+* It can help in improving the model's accuracy by creating meaningful variables
+* It increases the computational complexity
+* It simplifies the model by removing all categorical variables
+
+Answer: * It can help in improving the model's accuracy by creating meaningful variables
+
+
+20. 
+
+What is one-hot encoding?
+* Away to standardize variables
+* A method to encode categorical variables as binary vectors
+* A technique for handling missing values
+* A form of matrix factorization
+
+Answer: * A method to encode categorical variables as binary vectors
+
+
+21. 
+
+What is the implication of feature scaling? And is feature scaling improve the RF models?
+
+
+Feature scaling makes sure that all features in the data have the same scale.
+It's important for some algorithms like SVM and K-means clustering that get affected by feature scales.
+Even though Random Forest models aren't as sensitive to feature scaling, it can still help a bit in improving performance.
+Scaling guarantees that each feature has an equal influence on the model's predictions, avoiding dominance by features with larger scales.
+
+22. 
+
+Question 22
+Given a DataFrame df with a column Category containing categorical data, some of which are missing (represented as NaN), write a Python function to encode this column into numeric form using label encoding. The encoding should assign a unique integer to each unique category, including a specific integer for NaN values to distinguish them as a separate category. After encoding, add the encoded data as a new column Category _encoded to the DataFrame You may create a dummy DataFrame to test your function to ensure it works correctly; however, it is necessary to submit the dummy DataFrame with your solution. import pandas as pd
+import numpy as np
+
+import pandas as pd
+import numpy as np
+from sklearn.preprocessing import LabelEncoder
+
+def label_encode_category_column(df):
+    # Create a copy of the DataFrame to avoid modifying the original
+    df_encoded = df.copy()
+    
+    # Initialize LabelEncoder
+    label_encoder = LabelEncoder()
+    
+    # Fill missing values with a string representation to handle NaN values
+    df_encoded['Category'].fillna('missing_value', inplace=True)
+    
+    # Fit LabelEncoder on the 'Category' column
+    label_encoder.fit(df_encoded['Category'])
+    
+    # Transform 'Category' column to encoded labels
+    df_encoded['Category_encoded'] = label_encoder.transform(df_encoded['Category'])
+    
+    # Return the DataFrame with the encoded column
+    return df_encoded
+
+# Example DataFrame for testing
+df = pd.DataFrame({
+    'Category': ['A', 'B', 'C', np.nan, 'A', 'B', np.nan, 'C']
+})
+
+# Apply label encoding to the 'Category' column
+df_encoded = label_encode_category_column(df)
+
+print(df_encoded)
+
+
+Question 23
+Given a DataFrame named df with a column description containing text descriptions of apartment listings, write a Python function to add two new columns: has_parking and has _balcony. These columns should check each listing's description for the presence of the substrings "parking" and "balcony" respectively, and assign a boolean value (True if present, False otherwise) to each new column.
+You may create a dummy data frame to test your function to ensure it works correctly; however, submitting the dummy data frame with your solution is unnecessary. import pandas as pd
+
+import pandas as pd
+
+def add_amenities_columns(df):
+    # Create new columns with default value False
+    df['has_parking'] = False
+    df['has_balcony'] = False
+    
+    # Check each description for the presence of substrings
+    df['has_parking'] = df['description'].str.contains('parking', case=False)
+    df['has_balcony'] = df['description'].str.contains('balcony', case=False)
+    
+    # Convert the boolean values to boolean type
+    df['has_parking'] = df['has_parking'].astype(bool)
+    df['has_balcony'] = df['has_balcony'].astype(bool)
+    
+    return df
+
+# Example DataFrame for testing
+df = pd.DataFrame({
+    'description': [
+        'Spacious apartment with parking and balcony',
+        'Cozy studio with balcony',
+        'Modern loft with no parking',
+        'Apartment with balcony overlooking the city'
+    ]
+})
+
+# Add amenities columns to the DataFrame
+df_with_amenities = add_amenities_columns(df)
+
+print(df_with_amenities)
+
+
+</p>
+</html>
